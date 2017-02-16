@@ -12,8 +12,10 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
         DB::table('categories')->insert([
-            ['name' => 'PHP'],
-            ['name' => 'MySQL'],
+            ['name' => 'PHP',
+             'description' => 'Testez vos connaissances sur PHP'],
+            ['name' => 'MySQL',
+             'description' => 'Testez vos connaissances sur MySQL'],
         ]);
     }
 }

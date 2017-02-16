@@ -24,12 +24,15 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Question::class, function (Faker\Generator $faker) {
-   $cat = rand(1,2);
+   $publish = ['Publié', 'Non publié'];
+   $yon     = array_rand($publish);
+
     return [
-        'category_id' => $cat,
+        'category_id' => rand(1,2),
         'title' => $faker->cityPrefix,
         'abstract' => $faker->streetName,
         'content' => $faker->text,
+        'status'  => $publish[$yon],
         'date' => $faker->date,
     ];
 });
