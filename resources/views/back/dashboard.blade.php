@@ -18,7 +18,7 @@
        <thead>
          <tr>
              <th>Titre</th>
-             <th>Statut</th>
+             <th>Publiée</th>
              <th>Catégorie</th>
              <th>Date</th>
              <th>Action</th>
@@ -28,8 +28,8 @@
     @foreach ($questions as $question)
     <tr>
         <td><a href="{{route('question.edit', $question->id)}}">{{$question->title}}</a></td>
-        <td>{{$question->status}}</td>
-        <td><div class="btn">{{($question->category) ? $question->category->name : 'Sans catégorie'}}</div></td>
+        <td><i class="material-icons">{{($question->status == 'published') ? 'done' : 'loop'}}</i></td>
+        <td><a href="{{($question->category) ? route('cat', $question->category->id) : '#' }}"<div class="btn">{{($question->category) ? $question->category->name : 'Sans catégorie'}}</div></td>
         <td>{{$question->date}}</td>
         <td>
             <a href="{{route('question.edit', $question->id)}}"><button class="waves-effect waves-blue btn blue lighten-3"><i class="material-icons">mode_edit</i></button></a>

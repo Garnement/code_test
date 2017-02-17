@@ -1,12 +1,17 @@
 @extends ('layouts.admin')
 
 @section ('content')
+<p>Voici la liste complète des questions de la catégorie: {{$name}}</p>
+
+<div class="row center">
+    {{$questions->links()}}
+</div>
 
 <table class="striped">
        <thead>
          <tr>
              <th>Titre</th>
-             <th>Statut</th>
+             <th>Publiée</th>
              <th>Date</th>
              <th>Action</th>
          </tr>
@@ -15,7 +20,7 @@
     @foreach ($questions as $question)
     <tr>
         <td><a href="{{route('question.edit', $question->id)}}">{{$question->title}}</a></td>
-        <td>{{$question->status}}</td>
+        <td><i class="material-icons">{{($question->status == 'published') ? 'done' : 'loop'}}</td>
         <td>{{$question->date}}</td>
         <td>
             <a href="{{route('question.edit', $question->id)}}"><button class="waves-effect waves-blue btn blue lighten-3"><i class="material-icons">mode_edit</i></button></a>
@@ -49,5 +54,7 @@
     @endforeach
     </tbody>
 </table>
-
+<div class="row center">
+    {{$questions->links()}}
+</div>
 @endsection

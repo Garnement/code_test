@@ -64,6 +64,12 @@ class QuestionController extends Controller
     {  
         $question = Question::create( $request->all() );
 
+        $question->status = 'unpublished';
+
+        if($request->status == 'on') $question->status = 'published';
+
+        $question->save();
+
         session()->flash('flashMessage', 'La question a été ajoutée');
 
         return redirect()->route('dashboard');
@@ -111,10 +117,15 @@ class QuestionController extends Controller
 
         $question->update( $request->all() );
 
+        $question->status = 'unpublished';
+
+        if($request->status == 'on') $question->status = 'published';
+
+        $question->save();
+
         session()->flash('flashMessage', 'Modification effectuée');
 
         return redirect()->route('dashboard');
-
     }
 
     /**

@@ -21,10 +21,7 @@ class LoginController extends Controller
         //Récupération en même temps des champs email et password
         $credentials = $request->only('email', 'password');
 
-        /* ou
-        $credentials = ['email' => $request->email, 'password' => $request->password];
-        */
-
+        //Permet à l'utilisateur de rester connecté
         $remember = true;
 
         // Auth classe de Laravel qui permet de faire la requête sur la table Users et de vérifier le couple email/password
@@ -34,7 +31,7 @@ class LoginController extends Controller
 
             return redirect()->intended('dashboard'); // redirige vers la page profile
 
-          } else 
+          } else
           {
             //back() renvoi sur la page précédente
             return back()->withInput($request->only('email')); // redirige vers la page login
@@ -48,7 +45,7 @@ class LoginController extends Controller
   public function logout()
   {
     auth()->logout();
-    
+
     return redirect()->route('home');
   }
 }

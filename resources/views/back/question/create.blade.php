@@ -66,7 +66,7 @@
             <div class="switch">
                 <label class="input-field col s12">
                     Non
-                    <input type="checkbox" name="published_at" value="on" {{ ( old('published_at') == 'on' ) ? 'checked' : ''}}>
+                    <input type="checkbox" name="status" value="on" {{ ( old('status') == 'on' ) ? 'checked' : ''}}>
                     <span class="lever"></span>
                     Oui
                 </label>

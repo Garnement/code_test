@@ -44,7 +44,7 @@ class DashboardController extends Controller
 
         $name = $category->name;
 
-        $questions = $category->questions;
+        $questions = $category->questions()->orderBy('date', 'desc')->paginate(5);
 
         return view('back.category', compact('name', 'questions', 'category') );
     }

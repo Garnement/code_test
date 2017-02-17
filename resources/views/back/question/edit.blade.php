@@ -63,7 +63,7 @@
             <div class="switch">
                 <label class="input-field col s12">
                     Non
-                    <input type="checkbox" name="status" value="on" {{ ($question->status == 'Publiée') ? 'checked' : ''}}>
+                    <input type="checkbox" name="status" value="on" {{ ($question->status == 'published') ? 'checked' : ''}}>
                     <span class="lever"></span>
                     Oui
                 </label>
