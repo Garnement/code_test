@@ -1,4 +1,4 @@
-  <nav class="nav-extended blue lighten-2">
+  <nav class="nav-extended blue-grey darken-1">
     <div class="nav-wrapper">
       <a href="{{route('home')}}" class="brand-logo">Code Test</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -12,8 +12,12 @@
       </ul>
     </div>
     <div class="nav-content">
-      <ul class="tabs tabs-transparent">
-        <li class="tab"><a href="{{route('dashboard')}}">Dashboard</a></li>
+      <ul>
+        <li><a href="{{route('dashboard')}}">Dashboard</a></li>
+        @foreach ($categories as $category)
+          <li><a href="{{route('cat', $category->id)}}" title="">{{$category->name}}</a>
+        @endforeach
+          <li><a href="#" title="">Sans catégorie</a>
       </ul>
     </div>
   </nav>

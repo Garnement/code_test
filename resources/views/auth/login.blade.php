@@ -28,7 +28,7 @@
     </div>
 
     <div class="row">
-      <button class="btn waves-effect waves-light orange darken-2" type="submit" name="action">Log in
+      <button class="btn waves-effect waves-light orange darken-2" type="submit" name="action">Connexion
         <i class="material-icons right">send</i>
       </button>
   </form>

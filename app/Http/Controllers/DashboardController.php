@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use DB;
 use App\Question;
+use App\Category;
+use Auth;
 
 class DashboardController extends Controller
 {
@@ -19,13 +21,31 @@ class DashboardController extends Controller
         $view->with('categories', $categories);
 
         });
+
+        view()->composer('back.partials.sidebar', function($view){
+
+        $user = Auth::user();
+
+        $view->with('user', $user);
+        });
       }
 
 
     public function profile()
     {
-        $questions = Question::paginate(5);
+        $questions = Question::orderBy('date', 'desc')->paginate(5);
         
-        return view('back.dashboard', compact('questions', 'date'));
+        return view('back.dashboard', compact('questions'));
+    }
+
+    public function questionsByCat(int $id)
+    {
+        $category = Category::find($id);
+
+        $name = $category->name;
+
+        $questions = $category->questions;
+
+        return view('back.category', compact('name', 'questions', 'category') );
     }
 }

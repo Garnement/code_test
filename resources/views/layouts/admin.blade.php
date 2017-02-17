@@ -16,10 +16,14 @@
     <div class="container">
         <div class="row">
             @include('back.partials.nav')
-        </div>
-        
-        <div class="row">            
-            @yield('content')
+        </div>      
+        <div class="row"> 
+            <div class="col s3 blue-grey darken-1">
+                @include('back.partials.sidebar')   
+            </div>  
+            <div class="col s9">      
+                @yield('content')
+            </div>
         </div>
 
         <div class="row">
@@ -32,6 +36,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 <script>
  $(document).ready(function() {
+    $('.button-collapse').sideNav();
+    
     $('select').material_select();
 
     //Gestion de la popup

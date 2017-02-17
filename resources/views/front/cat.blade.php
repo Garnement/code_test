@@ -2,11 +2,12 @@
 
 @section('content')
 <p>Vous trouverez ici toutes les questions de la catégorie : {{$name}}</p>
-<ul>
+<p>Description: {{$category->description}}</p>
+<div class="row">
 @foreach ($questions as $question)
-    <li><a href="{{route('question', $question->id)}}">{{$question->title}}</a></li>
+    <div class="col s4"><a href="{{route('question', $question->id)}}">{{$question->title}}</a></div>
 @endforeach
-
+</div>
 
 
 @endsection

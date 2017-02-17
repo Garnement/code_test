@@ -1,25 +1,12 @@
-@extends('layouts.admin')
+@extends ('layouts.admin')
 
-@section('content')
-<div class="row center">
-    {{$questions->links()}}
-</div>
-<div class="row">
-    <div class="col s12">
-    <a href="{{route('question.create')}}" class="btn">Ajouter une nouvelle question</a>
-    </div>
-</div>
-@if ( $flash = session('flashMessage') )
-  <div class="chip {{($flash == 'Suppression effecutée') ? 'red' : 'green'}} lighten-3" id="flash">
-    <div class="col s12" id="flash">{{$flash}}</div>
-  </div>
-@endif
-    <table class="striped">
+@section ('content')
+
+<table class="striped">
        <thead>
          <tr>
              <th>Titre</th>
              <th>Statut</th>
-             <th>Catégorie</th>
              <th>Date</th>
              <th>Action</th>
          </tr>
@@ -29,7 +16,6 @@
     <tr>
         <td><a href="{{route('question.edit', $question->id)}}">{{$question->title}}</a></td>
         <td>{{$question->status}}</td>
-        <td><div class="btn">{{($question->category) ? $question->category->name : 'Sans catégorie'}}</div></td>
         <td>{{$question->date}}</td>
         <td>
             <a href="{{route('question.edit', $question->id)}}"><button class="waves-effect waves-blue btn blue lighten-3"><i class="material-icons">mode_edit</i></button></a>
@@ -63,9 +49,5 @@
     @endforeach
     </tbody>
 </table>
-
-<div class="row center">
-    {{$questions->links()}}
-</div>
 
 @endsection

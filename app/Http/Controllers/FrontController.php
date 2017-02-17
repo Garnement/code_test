@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 
 use App\Question;
 use App\Category;
+use DB;
 
 class FrontController extends Controller
 {
     public function index()
     {
-        $questions = Question::paginate(5);
+        //Requête sur les question qui ont été publiées.
+        $questions = Question::Date()->orderBy('date', 'desc')->paginate(5);
 
         return view('front.index', ['questions' => $questions]);
     }
@@ -31,6 +33,6 @@ class FrontController extends Controller
 
         $questions = $category->questions;
 
-        return view('front.cat', compact('name', 'questions') );
+        return view('front.cat', compact('name', 'questions', 'category') );
     }
 }

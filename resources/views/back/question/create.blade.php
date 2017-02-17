@@ -1,6 +1,7 @@
 @extends ('layouts.admin')
 
 @section('content')
+
 <h1>Ajouter une nouvelle question</h1>
 
 <div class="row">
@@ -18,19 +19,21 @@
         <div class="row">
             {{csrf_field()}}
         </div>
-    <!-- titre -->
+    <!-- titre de la question -->
       <div class="row">
         <div class="input-field col s6">
           <input id="title" type="text" class="validate" value="{{old('title')}}" name="title">
-          <label for="title">Titre de la question</label>
+          <label for="title">Titre de la question</label><i class="material-icons">warning</i>
+           @if ($errors->has('title')) <span> {{$errors->first('title')}}</span> @endif
         </div>
      </div>
 
-<!-- résumé -->
+<!-- résumé de la question-->
     <div class="row">
         <div class="input-field col s12">
             <input id="abstract" type="text" class="validate" value="{{old('abstract')}}" name="abstract">
             <label for="abstract">Résumé de la question</label>
+             @if ($errors->has('abstract')) <span> {{$errors->first('abstract')}}</span> @endif
         </div>
     </div>
 
@@ -38,11 +41,12 @@
     <div class="row">
         <div class="input-field col s12">
           <textarea id="content" class="materialize-textarea" value="{{old('content')}}" name="content"></textarea>
-          <label for="content">Question</label>
+          <label for="content">Question</label><i class="material-icons">warning</i>
+           @if ($errors->has('content')) <span> {{$errors->first('content')}}</span> @endif
         </div>
     </div>
 
-<!-- categorie du robot -->
+<!-- categorie de la question -->
     <div class="row">
       <div class="input-field col s12">
        <select name="category_id">
@@ -58,7 +62,7 @@
 
 <!-- publication de la question -->
      <div class="row">
-        <label class="input-field col s12">Publier le question ?</label>
+        <label class="input-field col s12">Publier la question ?</label>
             <div class="switch">
                 <label class="input-field col s12">
                     Non
@@ -77,6 +81,7 @@
             </button>
         </div>
     </form>
+</div>
 </div>
 
 @endsection

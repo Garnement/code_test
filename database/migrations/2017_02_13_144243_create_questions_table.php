@@ -21,7 +21,7 @@ class CreateQuestionsTable extends Migration
             $table->string('title', 100);//Titre de la question
             $table->string('abstract', 100);//Résumé de la question
             $table->string('content');//Contenu de la question
-            $table->string('status')->default('Non publié'); //Publication
+            $table->enum('status', ['published', 'unpublished'])->default('published'); //Publication
             $table->timestamp('date');//Date de publication
             $table->timestamps();
 

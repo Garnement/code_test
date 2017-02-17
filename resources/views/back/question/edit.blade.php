@@ -11,14 +11,13 @@
   @endif
 </div>
 
-<div class="row">
+<div class="col s9">
 <!-- début du formulaire -->
     <form class="col s12" action="{{route('question.update', $question->id)}}" method="post">
     <!-- token indispensable -->
         <div class="row">
             {{csrf_field()}}
-    <!-- méthode put -->
-            {{method_field('PATCH')}}
+            {{method_field('PUT')}}
         </div>
     <!-- titre -->
       <div class="row">
@@ -48,7 +47,7 @@
     <div class="row">
       <div class="input-field col s12">
        <select name="category_id">
-         <option value="0">Aucune catégorie</option>
+         <option value="0" selected>Aucune catégorie</option>
          @foreach ($category as $id => $name)
             <option {{ ($question->category ? $question->category->id == $id : false) ? 'selected' : '' }} value="{{$id}}">{{$name}}</option>
          @endforeach
@@ -64,7 +63,7 @@
             <div class="switch">
                 <label class="input-field col s12">
                     Non
-                    <input type="checkbox" name="published_at" value="on" {{ ($question->status == 'Publié') ? 'checked' : ''}}>
+                    <input type="checkbox" name="status" value="on" {{ ($question->status == 'Publiée') ? 'checked' : ''}}>
                     <span class="lever"></span>
                     Oui
                 </label>
@@ -78,7 +77,7 @@
                 <i class="material-icons right">mode_edit</i>
             </button>
         </div>
+    </div>
     </form>
 </div>
-
 @endsection

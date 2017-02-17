@@ -6,9 +6,30 @@ use Illuminate\Http\Request;
 
 use App\Category;
 use App\Question;
+use App\Http\Requests\QuestionRequest;
+use Auth;
+use DB;
 
 class QuestionController extends Controller
 {
+    public function __construct() 
+    {
+            view()->composer('back.partials.nav', function($view){
+        
+            $categories = DB::table('categories')->select('name', 'id')->get();
+
+            $view->with('categories', $categories);
+        });
+
+            view()->composer('back.partials.sidebar', function($view){
+
+            $user = Auth::user();
+
+            $view->with('user', $user);
+        });
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +37,9 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //
+        $questions = Question::all()->latest();
+
+        return view('back.dashboard', compact('questions'));
     }
 
     /**
@@ -37,7 +60,7 @@ class QuestionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(QuestionRequest $request)
     {  
         $question = Question::create( $request->all() );
 
@@ -81,12 +104,12 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(QuestionRequest $request, $id)
     {   
         //Récupération des informations de la question
         $question = Question::find($id);
 
-        Question::update( $request->all() );
+        $question->update( $request->all() );
 
         session()->flash('flashMessage', 'Modification effectuée');
 

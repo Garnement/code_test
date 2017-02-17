@@ -24,7 +24,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Question::class, function (Faker\Generator $faker) {
-   $publish = ['Publié', 'Non publié'];
+   $publish = ['published', 'unpublished'];
    $yon     = array_rand($publish);
 
     return [
