@@ -18,7 +18,7 @@
             @if (is_array($element))
                 @foreach ($element as $page => $url)
                     @if ($page == $paginator->currentPage())
-                        <li class="active light-blue accent-1 "><a>{{ $page }}</a></li>
+                        <li class="active {{ auth()->check() ? 'blue-grey darken-1' : 'blue lighten-1'}}"><a>{{ $page }}</a></li>
                     @else
                         <li class="waves-effect"><a href="{{ $url }}">{{ $page }}</a></li>
                     @endif

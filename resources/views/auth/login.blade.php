@@ -3,14 +3,14 @@
 
 @section('content')
 
-<div class="card blue lighten-5">
+<div class="card">
 <div class="row">
   <form class="col s12 center-align" action="{{route('login')}}" method="post">
     {{csrf_field()}}
     <div class="row">
       <div class="input-field col s12 center-align">
         <input id="email" type="email" class="validate" name="email">
-        <label for="email">ID ou Email</label>
+        <label for="email">Email</label>
         @if($errors->has('email')) <span>{{$errors->first('email')}}</span>@endif
       </div>
     </div>
@@ -28,7 +28,7 @@
     </div>
 
     <div class="row">
-      <button class="btn waves-effect waves-light orange darken-2" type="submit" name="action">Connexion
+      <button class="btn waves-effect waves-light grey darken-2" type="submit" name="action">Connexion
         <i class="material-icons right">send</i>
       </button>
   </form>

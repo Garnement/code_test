@@ -25,14 +25,23 @@ class FrontController extends Controller
         return view('front.single', compact('question'));
     }
 
+    //Questions par catégorie
     public function questionsByCat(int $id)
     {
         $category = Category::find($id);
 
         $name = $category->name;
 
-        $questions = $category->questions;
+        $questions = $category->questions()->orderBy('date', 'desc')->paginate(5);
 
         return view('front.cat', compact('name', 'questions', 'category') );
+    }
+
+    //Questions sans catégories
+    public function questionsWithoutCat()
+    {
+        $questions = Question::questionWithoutCategory()->get();
+
+        return view('front.withoutcat', compact('questions'));
     }
 }

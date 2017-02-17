@@ -17,6 +17,8 @@ Route::get('/question/{id}', 'FrontController@questionById')->name('question');
 
 Route::get('/category/{id}', 'FrontController@questionsByCat')->name('category');
 
+Route::get('/nocat', 'FrontController@questionsWithoutCat')->name('frontNoCat');
+
 Route::any('/login', 'LoginController@login')->name('login');
 
 Route::get('/logout', 'LoginController@logout')->name('logout');

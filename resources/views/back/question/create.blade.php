@@ -11,6 +11,9 @@
     </div>
   @endif
 </div>
+<div class="row col s12">
+    <i class="material-icons">warning</i> : Champs obligatoire
+</div>
 
 <div class="row">
 <!-- début du formulaire -->
@@ -23,27 +26,36 @@
       <div class="row">
         <div class="input-field col s6">
           <input id="title" type="text" class="validate" value="{{old('title')}}" name="title">
-          <label for="title">Titre de la question</label><i class="material-icons">warning</i>
+          <label for="title">Titre de la question</label>
            @if ($errors->has('title')) <span> {{$errors->first('title')}}</span> @endif
         </div>
+         <div class="input-field col s6">
+             <i class="material-icons">warning</i>
+         </div>
      </div>
 
 <!-- résumé de la question-->
     <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col s11">
             <input id="abstract" type="text" class="validate" value="{{old('abstract')}}" name="abstract">
             <label for="abstract">Résumé de la question</label>
              @if ($errors->has('abstract')) <span> {{$errors->first('abstract')}}</span> @endif
         </div>
+        <div class="input-field col s1">
+             <i class="material-icons">warning</i>
+         </div>
     </div>
 
 <!-- contenu de la question -->
     <div class="row">
-        <div class="input-field col s12">
-          <textarea id="content" class="materialize-textarea" value="{{old('content')}}" name="content"></textarea>
-          <label for="content">Question</label><i class="material-icons">warning</i>
+        <div class="input-field col s11">
+          <textarea id="content" class="materialize-textarea" value="{{old('content')}}" name="content">{{old('content')}}</textarea>
+          <label for="content">Question</label>
            @if ($errors->has('content')) <span> {{$errors->first('content')}}</span> @endif
         </div>
+         <div class="input-field col s1">
+             <i class="material-icons">warning</i>
+         </div>
     </div>
 
 <!-- categorie de la question -->
@@ -76,7 +88,7 @@
 <!-- bouton soumission -->
     <div class="row">
         <div class="input-field col s12">
-            <button class="btn waves-effect waves-light blue darken-2" type="submit" name="action">Créer
+            <button class="btn waves-effect waves-light grey darken-2" type="submit" name="action">Créer
                 <i class="material-icons right">mode_edit</i>
             </button>
         </div>

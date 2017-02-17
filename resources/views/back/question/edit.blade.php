@@ -73,7 +73,7 @@
 <!-- bouton soumission -->
     <div class="row">
         <div class="input-field col s12">
-            <button class="btn waves-effect waves-light blue darken-2" type="submit" name="action">Modifier
+            <button class="btn waves-effect waves-light grey darken-1" type="submit" name="action">Modifier
                 <i class="material-icons right">mode_edit</i>
             </button>
         </div>

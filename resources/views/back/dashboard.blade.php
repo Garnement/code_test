@@ -6,7 +6,7 @@
 </div>
 <div class="row">
     <div class="col s12">
-    <a href="{{route('question.create')}}" class="btn">Ajouter une nouvelle question</a>
+    <a href="{{route('question.create')}}" class="btn blue-grey darken-1">Ajouter une nouvelle question</a>
     </div>
 </div>
 @if ( $flash = session('flashMessage') )

@@ -3,16 +3,20 @@
 
 
 @section('content')
-<div class="row">
+<div class="row col s8">
     <p>Parce que tout ne rentre pas toujours parfaitement dans des cases, voici la liste des questions sans catégorie !</p>
 </div>
 
-<div class="row">
-    <table>
+<div class="row col s8">
+    <div class="btn grey">Sans catégorie</div>
+</div>
+
+<div class="row col s12">
+    <table class="striped">
         <thead>
             <tr>
                 <th>Titre</th>
-                <th>Publiée ?</th>
+                <th>Publiée</th>
                 <th>Date</th>
                 <th>Action</th>
             </tr>
@@ -40,10 +44,4 @@
         </tbody>
     </table>
 </div>
-
-
-
-
-
 @endsection
-{{dump($questions)}}
