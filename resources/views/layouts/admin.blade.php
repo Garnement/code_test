@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="row">
+        <div class="row blue-grey darken-1">
             @include('back.partials.nav')
         </div>      
         <div class="row"> 

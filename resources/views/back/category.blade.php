@@ -1,7 +1,7 @@
 @extends ('layouts.admin')
 
 @section ('content')
-<p>Voici la liste complète des questions de la catégorie: {{$name}}</p>
+<p>Voici la liste complète des questions de la catégorie: <div class="btn {{($name == 'PHP') ? 'blue' : 'green'}}">{{$name}}</div></p>
 
 <div class="row center">
     {{$questions->links()}}
@@ -32,21 +32,7 @@
                   <!-- Utilisation de la méthode DELETE -->
                   {{ method_field('DELETE') }}
                 </div>
-                <a href="#modal1"><button type="submit" name="action" class="waves-effect waves-orange btn red lighten-3"><i class="material-icons">delete</i></button></a>
-
-                    <!-- Fenêtre modale -->
-                    <div id="modal1" class="modal">
-                        <div class="modal-content">
-                            <h4>/!\ Attention /!\</h4>
-                            <p>Confirmez vous la suppression de la question ?</p>
-                            <p>{{$question->id}}</p>
-                        </div>
-                        
-                        <div class="modal-footer">
-                            <a href="{{route('question.destroy', $question->id)}}" type="submit" class="modal-action modal-close waves-effect waves-green btn-flat green lighten-3">Oui</a>
-                            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat red lighten-3">Non</a>
-                        </div>
-                    </div>
+                <button type="submit" name="action" class="waves-effect waves-orange btn red lighten-3"><i class="material-icons">delete</i></button>
             </form>
         </td>
     </tr>

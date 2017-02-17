@@ -48,4 +48,11 @@ class DashboardController extends Controller
 
         return view('back.category', compact('name', 'questions', 'category') );
     }
+
+    public function questionsWithoutCat()
+    {
+        $questions = Question::questionWithoutCategory()->get();
+
+        return view('back.withoutcat', compact('questions'));
+    }
 }

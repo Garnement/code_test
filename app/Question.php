@@ -32,4 +32,9 @@ class Question extends Model
     {
         return $query->where('status', '=', 'published');
     }
+
+    public function scopeQuestionWithoutCategory($query)
+    {
+        return $query->where('category_id', '=', null)->orderBy('date', 'desc');
+    }
 }

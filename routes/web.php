@@ -27,4 +27,5 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function() {
 
     Route::resource('question', 'QuestionController');
     Route::get('category/{id}', 'DashboardController@questionsByCat')->name('cat');
+    Route::get('nocategory', 'DashboardController@questionsWithoutCat')->name('nocat');
 });
