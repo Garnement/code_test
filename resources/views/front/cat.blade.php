@@ -6,7 +6,7 @@
           <ul class="collection with-header">
             <li class="collection-header"><h5>Description: {{$category->description}}</h5></li>
         @foreach ($questions as $question)
-            <li class="collection-item"><a href="{{route('category', $question->id)}}">{{$question->title}}</a></li>
+            <li class="collection-item"><a href="{{route('question', $question->id)}}">{{$question->title}}</a></li>
 @endforeach
         </ul>
 </div>
